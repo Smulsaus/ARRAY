@@ -8,7 +8,6 @@ console.log("Eerste songtitel: " + hitSongs[0]);
 console.log("Verzoeknummer: " + hitSongs[2]);
 
 // Opdracht 4
-console.log("Alle nummers in de lijst:");
 hitSongs.forEach(function(song, index) {
     console.log((index + 1) + ". " + song);
 });
