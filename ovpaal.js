@@ -37,7 +37,7 @@ function showPassengers() {
 }
 
 // Testen van functies
-addPassenger(123456, "Emma Smith", 25, "Amsterdam");
+addPassenger(123456, "Semi Berk", 25, "Venlo");
 checkInOut(163821, -10);
 removePassenger(145032);
 showPassengers();

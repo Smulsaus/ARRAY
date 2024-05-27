@@ -6,7 +6,7 @@ for (let i = 0; i < passengers.length; i++) {
 }
 
 // Opdracht 2
-passengers.push("Katie");
+passengers.push("Koen");
 console.log("Passagiers na toevoeging:");
 for (let i = 0; i < passengers.length; i++) {
     console.log(passengers[i]);
