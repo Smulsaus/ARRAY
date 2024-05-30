@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OV-Chipkaart Simulatie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .passagier {
+            margin: 20px;
+        }
+        .bus {
+            margin: 20px;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>OV-Chipkaart Simulatie</h1>
+    <div id="passagierInfo" class="passagier"></div>
+    <img id="bus" class="bus" src="bus.png" alt="Bus">
+    <audio id="checkSound" src="check.mp3"></audio>
+    <script src="ovpaal.js"></script>
+</body>
+</html>
