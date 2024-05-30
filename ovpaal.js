@@ -1,43 +1,39 @@
-// Opdracht 1
-let passengersInfo = [
-    { id: 163821, name: "Youri Mulders", saldo: 34, woonplaats: "Velden" },
-    { id: 145032, name: "Mahed Azam", saldo: 18, woonplaats: "Venlo" }
+const passagiers = [
+    { id: 163821, naam: "Leo Daams", saldo: 34, woonplaats: "Den Bosch", telefoonnummer: "0612345678" },
+    { id: 145032, naam: "Nicole Hops", saldo: 18, woonplaats: "Maastricht", telefoonnummer: "0687654321" }
 ];
 
-// Opdracht 2
-function addPassenger(id, name, saldo, woonplaats) {
-    passengersInfo.push({ id: id, name: name, saldo: saldo, woonplaats: woonplaats });
+function voegPassagierToe(id, naam, saldo, woonplaats, telefoonnummer) {
+    passagiers.push({ id, naam, saldo, woonplaats, telefoonnummer });
+    console.log(`Passagier ${naam} toegevoegd.`);
 }
 
-function checkInOut(id, amount) {
-    let passenger = passengersInfo.find(p => p.id === id);
-    if (passenger) {
-        passenger.saldo += amount;
-        console.log(passenger.name + "'s saldo is nu: " + passenger.saldo);
+function checkInUit(id, bedrag) {
+    const passagier = passagiers.find(p => p.id === id);
+    if (passagier) {
+        passagier.saldo += bedrag;
+        console.log(`Passagier ${passagier.naam} heeft nu een saldo van ${passagier.saldo}.`);
     } else {
-        console.log("Passagier niet gevonden.");
+        console.log("Passagier niet gevonden");
     }
 }
 
-function removePassenger(id) {
-    let index = passengersInfo.findIndex(p => p.id === id);
+function verwijderPassagier(id) {
+    const index = passagiers.findIndex(p => p.id === id);
     if (index !== -1) {
-        passengersInfo.splice(index, 1);
-        console.log("Passagier verwijderd.");
+        const removed = passagiers.splice(index, 1);
+        console.log(`Passagier ${removed[0].naam} verwijderd.`);
     } else {
-        console.log("Passagier niet gevonden.");
+        console.log("Passagier niet gevonden");
     }
 }
 
-function showPassengers() {
-    console.log("Lijst met passagiers:");
-    passengersInfo.forEach(function(passenger) {
-        console.log(passenger.name + " - Saldo: " + passenger.saldo + " - Woonplaats: " + passenger.woonplaats);
-    });
+function toonPassagiers() {
+    console.log("Huidige passagierslijst:", passagiers);
 }
 
-// Testen van functies
-addPassenger(123456, "Semi Berk", 25, "Venlo");
-checkInOut(163821, -10);
-removePassenger(145032);
-showPassengers();
+// Test cases
+voegPassagierToe(234567, "Jan Jansen", 50, "Utrecht", "0612345999");
+checkInUit(163821, -3);  // Leo Daams checkt uit en betaalt 3
+verwijderPassagier(145032);  // Nicole Hops zeg haar OV-kaart op
+toonPassagiers();
