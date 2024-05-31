@@ -3,31 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>OV-Chipkaart Simulatie</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .passagier {
-            margin: 20px;
-        }
-        .bus {
-            margin: 20px;
-            width: 100px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-    </style>
 </head>
 <body>
     <h1>OV-Chipkaart Simulatie</h1>
     <div id="passagierInfo" class="passagier"></div>
+    <div id="halteContainer" class="halte-container">
+        <div class="halte" data-halte-id="1">Halte 1</div>
+        <div class="halte" data-halte-id="2">Halte 2</div>
+        <div class="halte" data-halte-id="3">Halte 3</div>
+        <div class="halte" data-halte-id="4">Halte 4</div>
+    </div>
     <img id="bus" class="bus" src="bus.png" alt="Bus">
-    <audio id="checkSound" src="check.mp3"></audio>
+    <div id="busPassagiers" class="bus-passagiers"></div>
+    <div id="saldoInfo" class="saldo-info"></div>
     <script src="ovpaal.js"></script>
 </body>
 </html>

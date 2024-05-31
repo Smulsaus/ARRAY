@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.passagier, .saldo-info {
+    margin: 20px;
+}
+
+.bus {
+    margin: 20px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.halte-container {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 50px;
+}
+
+.halte {
+    width: 50px;
+    height: 50px;
+    background-color: lightgray;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bus-passagiers {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
