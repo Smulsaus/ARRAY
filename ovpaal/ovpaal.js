@@ -10,7 +10,7 @@ let busPassagiers = [];
 const passagierInfo = document.getElementById('passagierInfo');
 const bus = document.getElementById('bus');
 const busPassagiersDiv = document.getElementById('busPassagiers');
-const saldoInfo = document.getElementById('saldoInfo');
+const saldoTableBody = document.getElementById('saldoTBody');
 const haltes = document.querySelectorAll('.halte');
 let currentHalteIndex = 0;
 let busPosition = 0;
@@ -20,7 +20,17 @@ function toonPassagiersInBus() {
 }
 
 function toonSaldoInfo() {
-    saldoInfo.innerHTML = 'Saldo informatie:<br>' + passagiers.concat(busPassagiers).map(p => `${p.naam}: €${p.saldo}`).join('<br>');
+    saldoTableBody.innerHTML = '';
+    passagiers.concat(busPassagiers).sort((a, b) => a.id - b.id).forEach(p => {
+        const row = document.createElement('tr');
+        const naamCell = document.createElement('td');
+        const saldoCell = document.createElement('td');
+        naamCell.textContent = p.naam;
+        saldoCell.textContent = `€${p.saldo}`;
+        row.appendChild(naamCell);
+        row.appendChild(saldoCell);
+        saldoTableBody.appendChild(row);
+    });
 }
 
 function checkIn(id) {
