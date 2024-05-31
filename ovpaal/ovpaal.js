@@ -1,6 +1,9 @@
 const passagiers = [
     { id: 163821, naam: "Leo Daams", saldo: 34, woonplaats: "Den Bosch", telefoonnummer: "0612345678" },
-    { id: 145032, naam: "Nicole Hops", saldo: 18, woonplaats: "Maastricht", telefoonnummer: "0687654321" }
+    { id: 145032, naam: "Nicole Hops", saldo: 18, woonplaats: "Maastricht", telefoonnummer: "0687654321" },
+    { id: 123456, naam: "Jan Jansen", saldo: 10, woonplaats: "Utrecht", telefoonnummer: "0611122233" },
+    { id: 654321, naam: "Marie de Vries", saldo: 5, woonplaats: "Rotterdam", telefoonnummer: "0611223344" },
+    { id: 789012, naam: "Klaas Pieters", saldo: 15, woonplaats: "Amsterdam", telefoonnummer: "0611225566" }
 ];
 
 let busPassagiers = [];
@@ -57,12 +60,23 @@ function verlaagSaldo() {
     toonSaldoInfo();
 }
 
+function willekeurigInUitChecken() {
+    if (Math.random() > 0.5 && passagiers.length > 0) {
+        const randomPassagier = passagiers[Math.floor(Math.random() * passagiers.length)];
+        checkIn(randomPassagier.id);
+    } else if (busPassagiers.length > 0) {
+        const randomPassagier = busPassagiers[Math.floor(Math.random() * busPassagiers.length)];
+        checkUit(randomPassagier.id);
+    }
+}
+
 function beweegBus() {
     busPosition += 5;
     bus.style.left = busPosition + 'px';
     if (busPosition >= haltes[currentHalteIndex].offsetLeft) {
         busPosition = haltes[currentHalteIndex].offsetLeft;
         verlaagSaldo();
+        willekeurigInUitChecken();
         setTimeout(() => {
             if (currentHalteIndex < haltes.length - 1) {
                 currentHalteIndex++;
@@ -78,9 +92,8 @@ function beweegBus() {
     }
 }
 
-// Voorbeeld: Inchecken van passagiers
-checkIn(163821);
-checkIn(145032);
-
-// Start de bus animatie
+// Voorbeeld: Start de bus animatie
 requestAnimationFrame(beweegBus);
+
+// Toon initiale saldo informatie
+toonSaldoInfo();
