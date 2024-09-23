@@ -8,19 +8,19 @@ const passagiers = [
 
 let busPassagiers = [];
 const passagierInfo = document.getElementById('passagierInfo');
-const bus = document.getElementById('bus');
+const bus = document.getElementById('bus');      
 const busPassagiersDiv = document.getElementById('busPassagiers');
 const saldoTableBody = document.getElementById('saldoTBody');
-const haltes = document.querySelectorAll('.halte');
+const haltes = document.querySelectorAll('.halte');      
 let currentHalteIndex = 0;
 let busPosition = 0;
 
-function toonPassagiersInBus() {
+function toonPassagiersInBus() {      
     busPassagiersDiv.innerHTML = 'Passagiers in de bus: ' + busPassagiers.map(p => p.naam).join(', ');
 }
 
 function toonSaldoInfo() {
-    saldoTableBody.innerHTML = '';
+    saldoTableBody.innerHTML = '';               
     passagiers.concat(busPassagiers).sort((a, b) => a.id - b.id).forEach(p => {
         const row = document.createElement('tr');
         const naamCell = document.createElement('td');
